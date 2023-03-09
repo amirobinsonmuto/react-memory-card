@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Card from "./Card";
 
-const Cards = () => {
+const Cards = ({ addToClickedCardIdArr }) => {
   const [cardArr, setCardArr] = useState([
     { id: 1, text: "Description 1", imgPath: "../images/1.png" },
     { id: 2, text: "Description 2", imgPath: "../images/2.png" },
@@ -41,10 +42,18 @@ const Cards = () => {
   return (
     <div className="cards">
       {cardArr.map((obj) => (
-        <Card obj={obj} shuffleCards={shuffleCards} />
+        <Card
+          obj={obj}
+          shuffleCards={shuffleCards}
+          addToClickedCardIdArr={addToClickedCardIdArr}
+        />
       ))}
     </div>
   );
+};
+
+Cards.propTypes = {
+  addToClickedCardIdArr: PropTypes.func.isRequired,
 };
 
 export default Cards;
