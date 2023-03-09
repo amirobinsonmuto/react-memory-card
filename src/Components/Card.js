@@ -8,8 +8,8 @@ const Card = ({ obj, shuffleCards, addToClickedCardIdArr }) => {
   };
 
   return (
-    <div onClick={onClick}>
-      <img src={obj.imgPath} alt={obj.text} width="100" height="100" />
+    <div className="card" onClick={onClick}>
+      <img src={obj.imgPath} alt={obj.text} width="200" height="200" />
       <p>{obj.text}</p>
     </div>
   );

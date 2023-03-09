@@ -1,8 +1,28 @@
-.cards {
-  /* placeholder css */
+.App {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  gap: 100px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80vw;
+  gap: 3rem;
+}
+
+.card {
+  display: flex;
+  flex: 1 21%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  gap: 1rem;
+}
+
+.score {
+  margin-top: 100px;
 }
