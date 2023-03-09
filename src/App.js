@@ -30,7 +30,7 @@ function App() {
   const calculateCurrentScore = () => {
     if (checkDuplicates()) {
       resetClickedCardIdArr();
-      alert("dah duplicate!");
+      alert("Dah you'd clicked already!");
     } else {
       setCurrentScore(clickedCardIdArr.length);
     }
@@ -58,6 +58,12 @@ function App() {
     <div className="App">
       <Score currentScore={currentScore} bestScore={bestScore} />
       <Cards addToClickedCardIdArr={addToClickedCardIdArr} />
+      <p className="footer">
+        <a href="https://www.freepik.com/free-vector/asia-food-icon-set_1531439.htm#query=sushi%20cartoon&position=20&from_view=keyword&track=ais">
+          Image by macrovector
+        </a>{" "}
+        on Freepik
+      </p>
     </div>
   );
 }
