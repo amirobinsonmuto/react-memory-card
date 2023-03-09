@@ -11,10 +11,7 @@ function App() {
     setClickedCardIdArr([...clickedCardIdArr, clickedCardObjId]);
   };
 
-  const calculateCurrentScore = () => {
-    setCurrentScore(clickedCardIdArr.length);
-  };
-
+  // CheckDuplicates return true or false
   const checkDuplicates = () => {
     return clickedCardIdArr.some((el, index) => {
       const result = clickedCardIdArr.indexOf(el) !== index;
@@ -22,8 +19,14 @@ function App() {
     });
   };
 
+  // CalculateCurrentScore based on duplicate being existed or not
+  const calculateCurrentScore = () => {
+    checkDuplicates()
+      ? setCurrentScore(clickedCardIdArr.length - 1)
+      : setCurrentScore(clickedCardIdArr.length);
+  };
+
   useEffect(() => {
-    checkDuplicates();
     calculateCurrentScore();
   }, [clickedCardIdArr]);
 
