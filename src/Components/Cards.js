@@ -39,7 +39,7 @@ const Cards = () => {
   }, []);
 
   return (
-    <div>
+    <div className="cards">
       {cardArr.map((obj) => (
         <Card obj={obj} shuffleCards={shuffleCards} />
       ))}
