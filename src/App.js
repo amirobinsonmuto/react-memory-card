@@ -15,8 +15,15 @@ function App() {
     setCurrentScore(clickedCardIdArr.length);
   };
 
-  // calculate current score when there is a change in the clickedCardIdArr state
+  const checkDuplicates = () => {
+    return clickedCardIdArr.some((el, index) => {
+      const result = clickedCardIdArr.indexOf(el) !== index;
+      return result;
+    });
+  };
+
   useEffect(() => {
+    checkDuplicates();
     calculateCurrentScore();
   }, [clickedCardIdArr]);
 
