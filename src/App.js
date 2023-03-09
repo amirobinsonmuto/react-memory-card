@@ -6,6 +6,7 @@ import Score from "./Components/Score";
 function App() {
   const [clickedCardIdArr, setClickedCardIdArr] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const addToClickedCardIdArr = (clickedCardObjId) => {
     setClickedCardIdArr([...clickedCardIdArr, clickedCardObjId]);
@@ -30,9 +31,21 @@ function App() {
     calculateCurrentScore();
   }, [clickedCardIdArr]);
 
+  const updateBestScore = () => {
+    if (currentScore >= bestScore) {
+      setBestScore(currentScore);
+    }
+  };
+
+  // Use useEffect so that updateBestScore waits to get
+  // executed until the currentScore state is updated
+  useEffect(() => {
+    updateBestScore();
+  }, [currentScore]);
+
   return (
     <div className="App">
-      <Score currentScore={currentScore} />
+      <Score currentScore={currentScore} bestScore={bestScore} />
       <Cards addToClickedCardIdArr={addToClickedCardIdArr} />
     </div>
   );
