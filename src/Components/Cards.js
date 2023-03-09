@@ -43,6 +43,7 @@ const Cards = ({ addToClickedCardIdArr }) => {
     <div className="cards">
       {cardArr.map((obj) => (
         <Card
+          key={obj.id}
           obj={obj}
           shuffleCards={shuffleCards}
           addToClickedCardIdArr={addToClickedCardIdArr}
