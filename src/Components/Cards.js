@@ -12,6 +12,10 @@ const Cards = ({ addToClickedCardIdArr }) => {
     { id: 6, text: "Description 6", imgPath: "../images/6.png" },
     { id: 7, text: "Description 7", imgPath: "../images/7.png" },
     { id: 8, text: "Description 8", imgPath: "../images/8.png" },
+    { id: 9, text: "Description 9", imgPath: "../images/9.png" },
+    { id: 10, text: "Description 10", imgPath: "../images/10.png" },
+    { id: 11, text: "Description 11", imgPath: "../images/11.png" },
+    { id: 12, text: "Description 12", imgPath: "../images/12.png" },
   ]);
 
   const shuffleCards = () => {
