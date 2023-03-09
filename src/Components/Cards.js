@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 
 const Cards = () => {
-  const [allCardsArr, setAllCardsArr] = useState([
+  const [cardArr, setCardArr] = useState([
     { id: 1, text: "Description 1", imgPath: "../images/1.png" },
     { id: 2, text: "Description 2", imgPath: "../images/2.png" },
     { id: 3, text: "Description 3", imgPath: "../images/3.png" },
@@ -12,10 +12,36 @@ const Cards = () => {
     { id: 7, text: "Description 7", imgPath: "../images/7.png" },
     { id: 8, text: "Description 8", imgPath: "../images/8.png" },
   ]);
+
+  const shuffleCards = () => {
+    let cardArrCopy = [...cardArr];
+    let currentIndex = cardArrCopy.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [cardArrCopy[currentIndex], cardArrCopy[randomIndex]] = [
+        cardArrCopy[randomIndex],
+        cardArrCopy[currentIndex],
+      ];
+    }
+
+    setCardArr(cardArrCopy);
+  };
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <div>
-      {allCardsArr.map((obj) => (
-        <Card obj={obj} />
+      {cardArr.map((obj) => (
+        <Card obj={obj} shuffleCards={shuffleCards} />
       ))}
     </div>
   );
