@@ -59,8 +59,8 @@ function App() {
       <Score currentScore={currentScore} bestScore={bestScore} />
       <Cards addToClickedCardIdArr={addToClickedCardIdArr} />
       <p className="footer">
-        <a href="https://www.freepik.com/free-vector/asia-food-icon-set_1531439.htm#query=sushi%20cartoon&position=20&from_view=keyword&track=ais">
-          Image by macrovector
+        <a href="https://www.freepik.com/free-vector/illustration-dogs-collection_2800621.htm#query=dogs&position=15&from_view=search&track=popular">
+          Image by rawpixel.com
         </a>{" "}
         on Freepik
       </p>
