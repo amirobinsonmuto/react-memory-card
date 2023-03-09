@@ -8,11 +8,12 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
+  // add cardID to clickedCardIdArr state on button click
   const addToClickedCardIdArr = (clickedCardObjId) => {
     setClickedCardIdArr([...clickedCardIdArr, clickedCardObjId]);
   };
 
-  // CheckDuplicates return true or false
+  // Check duplicate and return true or false
   const checkDuplicates = () => {
     return clickedCardIdArr.some((el, index) => {
       const result = clickedCardIdArr.indexOf(el) !== index;
@@ -20,17 +21,27 @@ function App() {
     });
   };
 
-  // CalculateCurrentScore based on duplicate being existed or not
-  const calculateCurrentScore = () => {
-    checkDuplicates()
-      ? setCurrentScore(clickedCardIdArr.length - 1)
-      : setCurrentScore(clickedCardIdArr.length);
+  // Reset clickedCardIdArr if there is duplicate
+  const resetClickedCardIdArr = () => {
+    setClickedCardIdArr([]);
   };
 
+  // CalculateCurrentScore based on duplicate being existed or not
+  const calculateCurrentScore = () => {
+    if (checkDuplicates()) {
+      resetClickedCardIdArr();
+      alert("dah duplicate!");
+    } else {
+      setCurrentScore(clickedCardIdArr.length);
+    }
+  };
+
+  // calculate current store only when clickedCardIdArr has an update
   useEffect(() => {
     calculateCurrentScore();
   }, [clickedCardIdArr]);
 
+  // Update best score method
   const updateBestScore = () => {
     if (currentScore >= bestScore) {
       setBestScore(currentScore);
