@@ -30,7 +30,7 @@ function App() {
   const calculateCurrentScore = () => {
     if (checkDuplicates()) {
       resetClickedCardIdArr();
-      alert("Dah you'd clicked already!");
+      alert("Oops, you had selected that already! Try again.");
     } else {
       setCurrentScore(clickedCardIdArr.length);
     }
