@@ -1,9 +1,9 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .score {
@@ -20,7 +20,7 @@
 
 .card {
   display: flex;
-  flex: 1 21%;
+  flex: 1 12%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
