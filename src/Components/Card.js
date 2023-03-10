@@ -9,7 +9,12 @@ const Card = ({ obj, shuffleCards, addToClickedCardIdArr }) => {
 
   return (
     <div className="card" onClick={onClick}>
-      <img src={obj.imgPath} alt={obj.text} width="200" height="300" />
+      <img
+        src={process.env.PUBLIC_URL + obj.imgPath}
+        alt={obj.text}
+        width="200"
+        height="300"
+      />
     </div>
   );
 };
