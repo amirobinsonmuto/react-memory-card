@@ -48,10 +48,18 @@ function App() {
     }
   };
 
+  // Check if it's full mark
+  const endGame = () => {
+    if (currentScore === 12) {
+      alert("Congratulations! You have selected all different cards.");
+    }
+  };
+
   // Use useEffect so that updateBestScore waits to get
   // executed until the currentScore state is updated
   useEffect(() => {
     updateBestScore();
+    endGame();
   }, [currentScore]);
 
   return (
