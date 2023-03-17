@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 
 const Card = ({ obj, shuffleCards, addToClickedCardIdArr }) => {
-  const onClick = (e) => {
-    e.preventDefault();
+  const onClick = () => {
     addToClickedCardIdArr(obj.id);
     shuffleCards();
   };
@@ -12,8 +11,8 @@ const Card = ({ obj, shuffleCards, addToClickedCardIdArr }) => {
       <img
         src={process.env.PUBLIC_URL + obj.imgPath}
         alt={obj.text}
-        width="200"
-        height="300"
+        // width="200"
+        // height="300"
       />
     </div>
   );
